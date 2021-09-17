@@ -1,7 +1,7 @@
 # -*- coding = utf-8 -*-
 # @Time : 2021/9/15 下午 12:10
 # @Author : Fe
-# @File : app_core.py
+# @File : app.py
 # @Software : PyCharm
 
 from flask import Flask, request, render_template
@@ -19,3 +19,7 @@ def receivePOST():
         result = request.form
         print(result)
         return render_template("index.html")
+
+
+if __name__ == "__main__":
+    app.run()
