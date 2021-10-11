@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.application">
+    package="com.example.project1">
    <application
-        android:label="application"
+        android:label="專題-臺灣社交距離"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
