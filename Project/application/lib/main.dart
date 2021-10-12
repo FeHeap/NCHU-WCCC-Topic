@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Project Practice',
       theme: ThemeData(
-          primarySwatch: Colors.cyan
+          primarySwatch: Colors.cyan,
       ),
       home: MyHomePage(title: '臺灣社交距離'),
     );
@@ -73,13 +73,31 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title,),
         actions: <Widget>[
           PopupMenuButton<AppMenu>(
             onSelected: (AppMenu result) {
               switch(result) {
                 case  AppMenu.uploadsRandomID:
                   showAlert(context);
+                  break;
+                case AppMenu.appIntroduction:
+                  // TODO: Handle this case.
+                  break;
+                case AppMenu.dailyExposure:
+                  // TODO: Handle this case.
+                  break;
+                case AppMenu.instructions:
+                  // TODO: Handle this case.
+                  break;
+                case AppMenu.DataAccessControl:
+                  // TODO: Handle this case.
+                  break;
+                case AppMenu.commonProblem:
+                  // TODO: Handle this case.
+                  break;
+                case AppMenu.functionTips:
+                  // TODO: Handle this case.
                   break;
               }
             },
