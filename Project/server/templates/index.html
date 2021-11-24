@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <title>TEST</title>
+</head>
+<body>
+<br/>
+<div class="container">
+    <form action="{{ url_for('connect') }}" method="post">
+        <div class="row">
+            <div class="col-2">
+            <label for="myPhone" class="form-label">My Phone</label>
+            </div>
+            <div class="col-10">
+            <input type="text" name="myPhone" id="myPhone">
+            </div>
+            <div class="col-2">
+            <label for="Others" class="form-label">Others</label>
+            </div>
+            <div class="col-10">
+            <input type="text" name="Others" id="Others">
+            </div>
+            <p><br/><input type="submit" value="send"></p>
+        </div>
+    </form>
+</div>
+<hr/>
+<br/>
+<div class="container">
+    <form action="{{ url_for('covid') }}" method="post">
+        <div class="row">
+            <div class="col-2">
+            <label for="myPhone" class="form-label">My Phone</label>
+            </div>
+            <div class="col-10">
+            <input type="text" name="myPhone" id="myPhone">
+            </div>
+            <p><br/><input type="submit" value="covid-19"></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>

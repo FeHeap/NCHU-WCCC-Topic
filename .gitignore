@@ -2,3 +2,7 @@ APP_connect_Server/server/.git
 APP_connect_Server/server/.idea
 APP_connect_Server/server/venv
 APP_connect_Server/server/__pycache__
+
+Project/server/.idea
+Project/server/__pycache__
+Project/server/venv
