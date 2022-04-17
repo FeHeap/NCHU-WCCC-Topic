@@ -17,6 +17,7 @@ def hello_world():  # put application's code here
 def connect():
     if request.method == 'POST':
         link = request.form
+        print("link -" + link["myPhone"] + "- and -" + link["Others"] + "-")
         if (link["myPhone"] in linkMap):
             linkMap[link["myPhone"]][link["Others"]] = None
         else:
@@ -32,10 +33,16 @@ def connect():
 
 @app.route('/covid', methods=['POST', 'GET'])
 def covid():
+
     if request.method == 'POST':
         person = request.form['myPhone']
         if person not in covidMap:
             covidMap[person] = None
+
+        print("In covidMap:", end="")
+        for node in covidMap.keys():
+            print(node, end=" ")
+        print()
 
         leafToRoot = {}
 
@@ -63,6 +70,8 @@ def covid():
                         if root not in linkBuff:
                             linkBuff.append(root)
                     link = "-".join(linkBuff)
+                    if(link in hardLink):
+                        print("bad")
                     hardLink[link] = None
                     haveDone[outleaf] = None
 
