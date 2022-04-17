@@ -43,28 +43,30 @@ def getCipherUID():
     # create cursor
     cursor = conn.cursor()
 
-    SQL_select_command = """
+    SQL_select_command = f"""
            SELECT * FROM UIDTable
-           WHERE phone={phone};
+           WHERE phone='{phone}';
        """
     # execute SQL
     cursor.execute(SQL_select_command)
     data = cursor.fetchall()
 
     if len(data) != 0:
+        cursor.close()
+        conn.close()
         return ''
     else:
         hexArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
         UID = ''
         for j in range(64):
             UID += hexArray[random.randint(0, 15)]
-        SQL_insert_command = """
-                   INSERT INTO ivPasswdTable
+        SQL_insert_command = f"""
+                   INSERT INTO UIDTable
                     (phone, UID)
-                    VALUES (%s, %s);
+                    VALUES ('{phone}', '{UID}');
                """
         # execute SQL
-        cursor.execute(SQL_insert_command, phone, UID)
+        cursor.execute(SQL_insert_command)
 
 
         SQL_select_command = """
@@ -83,6 +85,7 @@ def getCipherUID():
             cipherIDs += ',' + ivPasswd[0] + encrypt(ivPasswd[1], ivPasswd[2], UID)
 
         return cipherIDs[1:]
+
 
 @app.route('/sendPointAndLinks', methods=['POST'])
 def sendPointAndLinks():
@@ -103,7 +106,7 @@ def sendPointAndLinks():
                         VALUES (%s, %s);
                    """
     # execute SQL
-    cursor.execute(SQL_insert_command, pointAndLinks[:67], pointAndLinks[68:])
+    cursor.execute(SQL_insert_command, pointAndLinks[:122], pointAndLinks[123:])
 
     conn.commit()
     cursor.close()

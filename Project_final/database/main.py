@@ -69,8 +69,8 @@ def pointAndLinks():
 
     SQL_command = '''
                 CREATE TABLE IF NOT EXISTS pointAndLinks (
-                    key_UID VARCHAR(67),
-                    links_UID VARCHAR(6800)
+                    key_UID VARCHAR(112),
+                    links_UID VARCHAR(11200)
                 );
         '''
     cursor.execute(SQL_command)
@@ -90,7 +90,7 @@ def covidTable():
 
     SQL_command = '''
                 CREATE TABLE IF NOT EXISTS covid (
-                    key_UID VARCHAR(67)
+                    key_UID VARCHAR(112)
                 );
         '''
     cursor.execute(SQL_command)
@@ -148,9 +148,9 @@ def getCovid():
 
 
 if __name__ == '__main__':
-    # ivPasswdTable()
-    # UIDTable()
-    # pointAndLinks()
-    # covidTable()
-    getPointAndLinks()
-    getCovid()
+    ivPasswdTable()
+    UIDTable()
+    pointAndLinks()
+    covidTable()
+    # getPointAndLinks()
+    # getCovid()
